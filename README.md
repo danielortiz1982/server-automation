@@ -1,4 +1,4 @@
-# eBlast Pro Linux server components
+# Ubuntu Linux server automation
 
 #### Clone repo
 
