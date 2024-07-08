@@ -3,7 +3,7 @@
 #### Clone repo
 
 ```shell
-git clone https://github.com/Email-Blast-Pro/server-components.git
+git clone https://github.com/danielortiz1982/server-automation.git
 ```
 
 #### Set and export server environment variables
