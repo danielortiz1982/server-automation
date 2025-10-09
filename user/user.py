@@ -12,5 +12,9 @@ def remove_user(username):
         print(f'${username} was removed')
         exit(0)
 
-# add_user('sample555', 'whoami')
-# remove_user('danielortiz')
+def add_user_group(username, group):
+        group_user_command = ['chmod', '-aG', group, username ]
+        subprocess.run(group_user_command)
+        print(f'{username} was added to {group}')
+
+add_user_group('danielortiz', 'users')
