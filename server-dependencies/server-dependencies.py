@@ -21,6 +21,7 @@ dependencies_list = [
     'sudo apt-get install php-zip -y',
     'sudo apt install python3-pip -y',
     'pip3 install mysql-connector --break-system-packages',
+    'pip3 install python-dotenv',
     'curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash -',
     'sudo apt install nodejs -y',
     'sudo npm install -g n',
