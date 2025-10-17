@@ -13,3 +13,10 @@ sudo sh server-bind9/server-zones.sh
 ## Apache2 Virtual Host
 sudo python3 server-vhost/server-vhost.py
 sudo sh server-vhost/server-vhost.sh
+
+
+## Postfix
+sudo python3 server-postfix/server-postfix.py
+sudo sh server-postfix/server-postfix.sh
+
+

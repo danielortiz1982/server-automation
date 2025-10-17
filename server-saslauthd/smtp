@@ -1,0 +1,2 @@
+auth required pam_mysql.so user=mail_admin passwd=$SERVER_ADMIN_PASSWORD host=127.0.0.1 db=mail table=users usercolumn=email passwdcolumn=password crypt=3
+account sufficient pam_mysql.so user=mail_admin passwd=$SERVER_ADMIN_PASSWORD host=127.0.0.1 db=mail table=users usercolumn=email passwdcolumn=password crypt=3
