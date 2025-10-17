@@ -21,4 +21,4 @@ filedata = filedata.replace('$SERVER_DOMAIN_NAME', os.environ['SERVER_DOMAIN_NAM
 with open('server-bind9/named.conf.local', 'w') as file:
   file.write(filedata)
 
-print('Server Bind')
+print('Server Bind9 automation successfully!')
