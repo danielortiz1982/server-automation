@@ -19,4 +19,11 @@ sudo sh server-vhost/server-vhost.sh
 sudo python3 server-postfix/server-postfix.py
 sudo sh server-postfix/server-postfix.sh
 
+## Dovecot
+sudo python3 server-dovecot/server-dovecot.py
+sudo sh server-dovecot/server-dovecot.sh
 
+
+## Saslauthd
+sudo python3 server-saslauthd/server-saslauthd.py
+sudo sh server-saslauthd/server-saslauthd.sh
