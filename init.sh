@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo python3 server-dependencies/server-dependencies.py
+sudo sh server-dependencies/server-dependencies.sh
 # sudo python3 server-db-setup/server-db-setup.py
 
 ## Bind9
