@@ -1,7 +1,5 @@
 #!/bin/bash
 
-sudo su
-
 sudo python3 server-dependencies/server-dependencies.py
 # sudo python3 server-db-setup/server-db-setup.py
 

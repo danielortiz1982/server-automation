@@ -20,8 +20,10 @@ dependencies_list = [
     'sudo apt-get install php-xml -y',
     'sudo apt-get install php-zip -y',
     'sudo apt install python3-pip -y',
-    'pip3 install mysql-connector --break-system-packages',
-    'pip3 install python-dotenv',
+    'python3 -m venv pyenv',
+    'source pyenv/bin/activate',
+    'pip install mysql-connector --break-system-packages',
+    'pip install python-dotenv',
     'curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash -',
     'sudo apt install nodejs -y',
     'sudo npm install -g n',
@@ -50,6 +52,7 @@ dependencies_list = [
     'apt install dovecot-mysql -y',
     'apt install dovecot-sieve -y',
     'apt install dovecot-managesieved -y',
+    'source .env'
 ]
 
 def server_dependencies(list):
