@@ -49,4 +49,3 @@ sudo apt install mailutils -y
 sudo apt install dovecot-mysql -y
 sudo apt install dovecot-sieve -y
 sudo apt install dovecot-managesieved -y
-source .env
