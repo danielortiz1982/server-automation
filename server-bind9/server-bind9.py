@@ -1,24 +1,28 @@
-# from dotenv import load_dotenv
-import os
+import json
 
-# load_dotenv()
+server_config = {}
+zone = ""
+named = ""
 
-with open('server-bind9/db.your-domain-name.com', 'r') as file:
-  filedata = file.read()
+with open('env.json', 'r') as config:
+    content = config.read()
+    server_config = json.loads(content)
 
-filedata = filedata.replace('$SERVER_DOMAIN_NAME', os.environ['SERVER_DOMAIN_NAME'])
-filedata = filedata.replace('$SERVER_IP_ADDRESS', os.environ['SERVER_IP_ADDRESS'])
+with open('server-bind9/db.your-domain-name.com') as f:
+    f = f.read()
+    f = f.replace('$SERVER_DOMAIN_NAME', server_config['SERVER_DOMAIN_NAME'])
+    f = f.replace('$SERVER_IP_ADDRESS', server_config['SERVER_IP_ADDRESS'])
+    zone = f
 
-with open('server-bind9/db.' + os.environ['SERVER_DOMAIN_NAME'], 'w') as file:
-  file.write(filedata)
+with open(f'server-bind9/db.{server_config["SERVER_DOMAIN_NAME"]}', "w") as f:
+    f.write(zone)
+    
+with open('server-bind9/server.named.conf.local') as f:
+    f = f.read()
+    f = f.replace('$SERVER_DOMAIN_NAME', server_config['SERVER_DOMAIN_NAME'])
+    named = f
 
-
-with open('server-bind9/server.named.conf.local', 'r') as file:
-	filedata = file.read()
-
-filedata = filedata.replace('$SERVER_DOMAIN_NAME', os.environ['SERVER_DOMAIN_NAME'])
-
-with open('server-bind9/named.conf.local', 'w') as file:
-  file.write(filedata)
+with open('server-bind9/named.conf.local', 'w') as f:
+    f.write(named)
 
 print('Server Bind9 automation successfully!')
