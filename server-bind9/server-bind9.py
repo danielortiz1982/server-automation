@@ -14,7 +14,7 @@ with open('server-bind9/db.your-domain-name.com') as f:
     f = f.replace('$SERVER_IP_ADDRESS', server_config['SERVER_IP_ADDRESS'])
     zone = f
 
-with open(f'server-bind9/db.{server_config["SERVER_DOMAIN_NAME"]}', "w") as f:
+with open(f'/etc/bind/db.{server_config["SERVER_DOMAIN_NAME"]}', "w") as f:
     f.write(zone)
     
 with open('server-bind9/server.named.conf.local') as f:
