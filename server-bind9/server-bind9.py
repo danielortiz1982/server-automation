@@ -1,4 +1,5 @@
 import json
+import subprocess
 
 server_config = {}
 zone = ""
@@ -24,5 +25,6 @@ with open('server-bind9/server.named.conf.local', 'r') as f:
 
 with open('/etc/bind/named.conf.local', 'w') as f:
     f.write(named)
+    subprocess.run("sudo systemctl restart bind9", shell=True)
 
 print('Server Bind9 automation successfully!')
