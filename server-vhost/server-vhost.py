@@ -16,7 +16,7 @@ with open('server-vhost/your-domain-name.conf', 'r') as f:
 
 with open(f'/etc/apache2/sites-available/{server_config["SERVER_DOMAIN_NAME"]}.conf', 'w') as f:
     f.write(conf_file)
-    subprocess.run('sudo a2dissite /etc/apache2/sites-available/000-default.conf', shell=True)
+    subprocess.run('sudo a2dissite 000-default', shell=True)
     subprocess.run(f'sudo a2ensite {server_config["SERVER_DOMAIN_NAME"]}', shell=True)
     subprocess.run(f'sudo systemctl reload apache2', shell=True)
     subprocess.run(f'sudo systemctl restart apache2', shell=True)

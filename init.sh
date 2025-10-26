@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# sudo sh server-dependencies/server-dependencies.sh
+sudo sh server-dependencies/server-dependencies.sh
 # sudo python server-db-setup/server-db-setup.py
 
 ## Bind9
-# sudo python3 server-bind9/server-bind9.py
+sudo python3 server-bind9/server-bind9.py
 
 ## Apache2 Virtual Host
 sudo python3 server-vhost/server-vhost.py
 
 ## Postfix
-# sudo python server-postfix/server-postfix.py
+# sudo python3 server-postfix/server-postfix.py
 # sudo sh server-postfix/server-postfix.sh
 
 ## Dovecot

@@ -1,5 +1,5 @@
-user = mail_admin
+user = $SERVER_ADMIN_USER
 password = $SERVER_ADMIN_PASSWORD
-dbname = mail
+dbname = $SERVER_DB_NAME
 query = SELECT email FROM users WHERE email='%s'
 hosts = 127.0.0.1
