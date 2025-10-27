@@ -10,11 +10,10 @@
 # sudo python3 server-vhost/server-vhost.py
 
 ## Postfix
-sudo python3 server-postfix/server-postfix.py
-# sudo sh server-postfix/server-postfix.sh
+# sudo python3 server-postfix/server-postfix.py
 
 ## Dovecot
-# sudo python server-dovecot/server-dovecot.py
+sudo python server-dovecot/server-dovecot.py
 # sudo sh server-dovecot/server-dovecot.sh
 
 
