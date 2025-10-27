@@ -1,19 +1,28 @@
-import os
+import json
+import subprocess
 
+server_config = {}
+template = ""
 
+files = [
+    'dovecot-sql',
+    'dovecot'
+]
 
-# with open('server-dovecot/dovecot.template.conf', 'r') as file:
-# 	filedata = file.read()
+with open('env.json', 'r') as config:
+    content = config.read()
+    server_config = json.loads(content)
 
-# filedata = filedata.replace('$SERVER_DOMAIN_NAME', os.environ['SERVER_DOMAIN_NAME'])
+for index, file in enumerate(files):
+    with open(f'server-dovecot/{file}.template.conf', 'r') as f:
+        f = f.read()
+        f = f.replace('$SERVER_DOMAIN_NAME', server_config["SERVER_DOMAIN_NAME"])
+        f = f.replace('$SERVER_DB_NAME', server_config["SERVER_DB_NAME"])
+        f = f.replace('$SERVER_ADMIN_USER', server_config["SERVER_ADMIN_USER"])
+        f = f.replace('$SERVER_ADMIN_PASSWORD', server_config["SERVER_ADMIN_PASSWORD"])
+        template = f
 
-# with open('server-dovecot/dovecot.conf', 'w') as file:
-#   file.write(filedata)
-
-# with open('server-dovecot/dovecot-sql.template.conf', 'r') as file:
-# 	filedata = file.read()
-
-# filedata = filedata.replace('$SERVER_ADMIN_PASSWORD', os.environ['SERVER_ADMIN_PASSWORD'])
-
-# with open('server-dovecot/dovecot-sql.conf', 'w') as file:
-#   file.write(filedata)
+    with open(f'/etc/dovecot/{file}.conf', 'w') as f:
+        f.write(template)
+        if index == len(files) - 1:
+            subprocess.run(f'sudo systemctl restart dovecot', shell=True)
