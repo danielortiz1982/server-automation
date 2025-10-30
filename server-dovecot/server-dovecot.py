@@ -26,3 +26,5 @@ for index, file in enumerate(files):
         f.write(template)
         if index == len(files) - 1:
             subprocess.run(f'sudo systemctl restart dovecot', shell=True)
+
+print('Dovecot automation successfully complete!')

@@ -1,14 +1,11 @@
 # Server Automation
 
 ### Dependencies
-- os
+- json
+- mysql
 - subprocess
-- datetime
-- request
-- sqlite3
-- bs4
 
-
+### Server Environment Configuration
 ```json
 {
     "SERVER_NAME": "server_name",
