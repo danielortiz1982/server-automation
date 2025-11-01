@@ -17,3 +17,6 @@ sudo python3 server-dovecot/server-dovecot.py
 
 ## Saslauthd
 sudo python3 server-saslauthd/server-saslauthd.py
+
+# Reboot System
+sudo reboot now
