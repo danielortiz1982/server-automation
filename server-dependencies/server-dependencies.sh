@@ -20,14 +20,6 @@ sudo apt install python3-pip -y
 sudo python3 -m venv pyenv
 source pyenv/bin/activate
 sudo pip install mysql-connector --break-system-packages
-curl -fsSL https://deb.nodesource.com/setup_25.x | sudo -E bash -
-sudo apt install nodejs -y
-sudo npm install -g n
-sudo n lts
-sudo npm install -g --save-dev @babel/core @babel/cli
-sudo npm install -g --save-dev webpack
-sudo npm install -g --save-dev webpack-cli
-sudo npm install -g @angular/cli -y
 sudo apt install bind9 -y
 sudo apt install bind9utils -y 
 sudo apt install bind9-doc -y
