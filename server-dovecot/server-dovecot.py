@@ -24,7 +24,7 @@ for index, file in enumerate(files):
 
     with open(f'/etc/dovecot/{file}.conf', 'w') as f:
         f.write(template)
-        if index == len(files) - 1:
-            subprocess.run(f'sudo systemctl restart dovecot', shell=True)
+
+# subprocess.run(f'sudo systemctl restart dovecot', shell=True)
 
 print('Dovecot automation successfully complete!')
