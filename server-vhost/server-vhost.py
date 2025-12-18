@@ -30,7 +30,7 @@ with open('server-vhost/template.html', 'r') as f:
     f = f.replace('$SERVER_NAME', server_config['SERVER_NAME'])
     template = f
 
-with open(f'/var/www/{server_config["SERVER_DOMAIN_NAME"]}/', 'w') as f:
+with open(f'/var/www/{server_config["SERVER_DOMAIN_NAME"]}/index.html', 'w') as f:
     f.write(template)
 
 
