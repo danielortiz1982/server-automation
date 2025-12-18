@@ -25,7 +25,7 @@ subprocess.run("sudo cp server-saslauthd/smtpd.conf /etc/postfix/sasl/smtpd.conf
 subprocess.run("sudo chmod o-rwx /etc/pam.d/smtp", shell=True)
 subprocess.run("sudo chmod o-rwx /etc/postfix/sasl/smtpd.conf", shell=True)
 subprocess.run("sudo usermod  -aG sasl postfix", shell=True)
-# subprocess.run("sudo systemctl restart postfix", shell=True)
-# subprocess.run("sudo systemctl restart saslauthd", shell=True)
+subprocess.run("sudo systemctl restart postfix", shell=True)
+subprocess.run("sudo systemctl restart saslauthd", shell=True)
 
 print("'Server saslauthd automation successfully!'")
