@@ -25,6 +25,7 @@ for index, file in enumerate(files):
     with open(f'/etc/dovecot/{file}.conf', 'w') as f:
         f.write(template)
 
-subprocess.run(f'sudo systemctl restart dovecot', shell=True)
+# Needs to moved after Certbot is complete. 
+# subprocess.run(f'sudo systemctl restart dovecot', shell=True)
 
 print('Dovecot automation successfully complete!')

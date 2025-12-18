@@ -1,21 +1,24 @@
 #!/bin/bash
 
+### Dependencies ###
 sudo sh server-dependencies/server-dependencies.sh
-sudo python3 server-db-setup/server-db-setup.py
 
-## Bind9
+### Mysql Database ###
+sudo python3 server-db-setup/server-db.py
+
+## Bind9 ###
 sudo python3 server-bind9/server-bind9.py
 
-## Apache2 Virtual Host
+### Virtual Host ###
 sudo python3 server-vhost/server-vhost.py
 
-## Postfix
+### Postfix ###
 sudo python3 server-postfix/server-postfix.py
 
-## Dovecot
+### Dovecot ###
 sudo python3 server-dovecot/server-dovecot.py
 
-## Saslauthd
+### Saslauthd ###
 sudo python3 server-saslauthd/server-saslauthd.py
 
 echo "Server Automation Complete!"
