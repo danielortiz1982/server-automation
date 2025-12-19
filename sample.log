@@ -1,0 +1,13 @@
+2025-12-15T18:19:01.850004+00:00 mediapigeons postfix/smtpd[82437]: connect from pool-74-108-148-111.nycmny.fios.verizon.net[74.108.148.111]
+2025-12-15T18:19:02.270100+00:00 mediapigeons postfix/smtpd[82437]: 41A743D992: client=pool-74-108-148-111.nycmny.fios.verizon.net[74.108.148.111], sasl_method=PLAIN, sasl_username=dortiz@mediapigeons.com
+2025-12-15T18:19:02.303535+00:00 mediapigeons postfix/cleanup[82441]: 41A743D992: message-id=<C8557969-C3F8-486E-8127-5115CB7AC7C7@mediapigeons.com>
+2025-12-15T18:19:02.325288+00:00 mediapigeons opendkim[982]: 41A743D992: DKIM-Signature field added (s=mail, d=mediapigeons.com)
+2025-12-15T18:19:02.372181+00:00 mediapigeons postfix/qmgr[1267]: 41A743D992: from=<dortiz@mediapigeons.com>, size=1001, nrcpt=1 (queue active)
+2025-12-15T18:19:03.230211+00:00 mediapigeons postfix/smtp[82442]: 41A743D992: to=<mediapigeons@gmail.com>, relay=gmail-smtp-in.l.google.com[172.253.115.27]:25, delay=1.1, delays=0.21/0.07/0.22/0.57, dsn=2.0.0, status=sent (250 2.0.0 OK  1765822743 af79cd13be357-8be31c65e35si4305685a.243 - gsmtp)
+2025-12-15T18:19:03.230966+00:00 mediapigeons postfix/qmgr[1267]: 41A743D992: removed
+
+
+
+
+
+default._bimi    IN    TXT    "v=BIMI1; l=https://mediapigeons.com/bimi-svg-tiny-12-ps.svg; a=;"
