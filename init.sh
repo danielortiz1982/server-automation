@@ -4,7 +4,7 @@
 sudo sh server-dependencies/server-dependencies.sh
 
 ### Mysql Database ###
-sudo python3 server-db-setup/server-db.py
+sudo python3 server-db/server-db.py
 
 ## Bind9 ###
 sudo python3 server-bind9/server-bind9.py
