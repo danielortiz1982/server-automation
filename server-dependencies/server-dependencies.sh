@@ -38,3 +38,5 @@ sudo apt-get install mailutils -y
 sudo apt-get install dovecot-mysql -y
 sudo apt-get install dovecot-sieve -y
 sudo apt-get install dovecot-managesieved -y
+sudo apt-get install opendkim -y
+sudo apt-get install opendkim-tools -y
