@@ -5,6 +5,12 @@ server_config = {}
 conf_file = ""
 template = ""
 
+### Certbot variables (Modify these) ###
+EMAIL=f'webmaster@{server_config["SERVER_DOMAIN_NAME"]}'                        # Your contact email for urgent renewal notices
+DOMAIN=server_config["SERVER_DOMAIN_NAME"]                                      # Your main domain name
+WWW_DOMAIN=f'www.{server_config["SERVER_DOMAIN_NAME"]}'                         # The www subdomain
+WEBSERVER="apache"                                                              # Or "nginx" if you use Nginx
+
 with open('env.json', 'r') as config:
     content = config.read()
     server_config = json.loads(content)
@@ -41,5 +47,9 @@ subprocess.run(f'sudo -u www-data cp /var/www/{server_config["SERVER_DOMAIN_NAME
 subprocess.run(f'sudo -u www-data sed -i "s/database_name_here/{server_config["SERVER_DB_NAME"]}/" /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wordpress/wp-config.php', shell=True)
 subprocess.run(f'sudo -u www-data sed -i "s/username_here/{server_config["SERVER_ADMIN_USER"]}/" /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wordpress/wp-config.php', shell=True)
 subprocess.run(f'sudo -u www-data sed -i "s/password_here/{server_config["SERVER_ADMIN_PASSWORD"]}/" /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wordpress/wp-config.php', shell=True)
+
+### Certbot Automation ###
+SHELL_COMMAND=f'sudo certbot run --{WEBSERVER} -d {DOMAIN} -d {WWW_DOMAIN} --noninteractive --agree-tos -m {EMAIL}'
+subprocess.run(SHELL_COMMAND, shell=True)
 
 print('Vhost automation successfully complete!')
