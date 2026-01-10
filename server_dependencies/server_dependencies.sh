@@ -17,6 +17,7 @@ sudo apt-get install php-mysql -y
 sudo apt-get install php-xml -y
 sudo apt-get install php-zip -y
 sudo apt-get install python3-pip -y
+sudo apt-get install python3-venv -y
 sudo apt-get install python3-mysql.connector -y
 sudo apt-get install bind9 -y
 sudo apt-get install bind9utils -y 
