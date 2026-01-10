@@ -35,23 +35,23 @@ with open(f'server_vhost/index.html', 'w') as f:
     subprocess.run(f'sudo systemctl reload apache2', shell=True)
     subprocess.run(f'sudo systemctl restart apache2', shell=True)
 
+    ### Certbot variables (Modify these) ###
+    EMAIL=f'webmaster@{server_config["SERVER_DOMAIN_NAME"]}'                        # Your contact email for urgent renewal notices
+    DOMAIN=server_config["SERVER_DOMAIN_NAME"]                                      # Your main domain name
+    WWW_DOMAIN=f'www.{server_config["SERVER_DOMAIN_NAME"]}'                         # The www subdomain
+    WEBSERVER="apache"                                                              # Or "nginx" if you use Nginx
+
+    ### Certbot Automation ###
+    SHELL_COMMAND=f'sudo certbot run --{WEBSERVER} -d {DOMAIN} -d {WWW_DOMAIN} --noninteractive --agree-tos -m {EMAIL}'
+    subprocess.run(SHELL_COMMAND, shell=True)
+
 
 ### todo check if client has a wp hosting plan ###
 ### WordPress Automation ###
 # subprocess.run(f'curl https://wordpress.org/latest.tar.gz | sudo -u www-data tar zx -C /var/www/{server_config["SERVER_DOMAIN_NAME"]}', shell=True)
-# subprocess.run(f'sudo -u www-data cp /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wordpress/wp-config-sample.php /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wordpress/wp-config.php', shell=True)
-# subprocess.run(f'sudo -u www-data sed -i "s/database_name_here/{server_config["SERVER_DB_NAME"]}/" /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wordpress/wp-config.php', shell=True)
-# subprocess.run(f'sudo -u www-data sed -i "s/username_here/{server_config["SERVER_ADMIN_USER"]}/" /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wordpress/wp-config.php', shell=True)
-# subprocess.run(f'sudo -u www-data sed -i "s/password_here/{server_config["SERVER_ADMIN_PASSWORD"]}/" /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wordpress/wp-config.php', shell=True)
-
-### Certbot variables (Modify these) ###
-EMAIL=f'webmaster@{server_config["SERVER_DOMAIN_NAME"]}'                        # Your contact email for urgent renewal notices
-DOMAIN=server_config["SERVER_DOMAIN_NAME"]                                      # Your main domain name
-WWW_DOMAIN=f'www.{server_config["SERVER_DOMAIN_NAME"]}'                         # The www subdomain
-WEBSERVER="apache"                                                              # Or "nginx" if you use Nginx
-
-### Certbot Automation ###
-SHELL_COMMAND=f'sudo certbot run --{WEBSERVER} -d {DOMAIN} -d {WWW_DOMAIN} --noninteractive --agree-tos -m {EMAIL}'
-subprocess.run(SHELL_COMMAND, shell=True)
+# subprocess.run(f'sudo -u www-data cp /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wp-config-sample.php /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wp-config.php', shell=True)
+# subprocess.run(f'sudo -u www-data sed -i "s/database_name_here/{server_config["SERVER_DB_NAME"]}/" /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wp-config.php', shell=True)
+# subprocess.run(f'sudo -u www-data sed -i "s/username_here/{server_config["SERVER_ADMIN_USER"]}/" /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wp-config.php', shell=True)
+# subprocess.run(f'sudo -u www-data sed -i "s/password_here/{server_config["SERVER_ADMIN_PASSWORD"]}/" /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wp-config.php', shell=True)
 
 print('Vhost automation successfully complete!')
