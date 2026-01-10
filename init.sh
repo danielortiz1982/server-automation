@@ -10,7 +10,7 @@ sudo python3 server_db/server_db.py
 ## Bind9 Zones ###
 sudo python3 server_bind9/server_bind9.py
 ### Virtual Host ###
-# sudo python3 server_vhost/server_vhost.py
+sudo python3 server_vhost/server_vhost.py
 ### Postfix ###
 # sudo python3 server_postfix/server_postfix.py
 ### Dovecot ###
