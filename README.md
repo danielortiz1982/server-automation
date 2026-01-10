@@ -6,6 +6,7 @@
 - subprocess
 
 ### Server Environment Configuration
+> Create `env.json` with the configuation outlined below and save it in the root of the project.
 ```json
 {
     "SERVER_NAME": "server_name",
