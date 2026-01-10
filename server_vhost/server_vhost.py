@@ -29,7 +29,7 @@ with open(f'server_vhost/index.html', 'w') as f:
 
     subprocess.run(f'sudo mkdir -p /var/www/{server_config["SERVER_DOMAIN_NAME"]}/', shell=True)
     subprocess.run(f'sudo chown www-data: /var/www/{server_config["SERVER_DOMAIN_NAME"]}', shell=True)
-    subprocess.run(f'sudo -u www-data cp server_vhost/index.html /var/www/{server_config["SERVER_DOMAIN_NAME"]}/index.html')
+    subprocess.run(f'sudo -u www-data cp server_vhost/index.html /var/www/{server_config["SERVER_DOMAIN_NAME"]}/index.html', shell=True)
     subprocess.run('sudo a2dissite 000-default', shell=True)
     subprocess.run(f'sudo a2ensite {server_config["SERVER_DOMAIN_NAME"]}', shell=True)
     subprocess.run(f'sudo systemctl reload apache2', shell=True)
