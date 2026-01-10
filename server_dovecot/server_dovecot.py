@@ -14,7 +14,7 @@ with open('env.json', 'r') as config:
     server_config = json.loads(content)
 
 for index, file in enumerate(files):
-    with open(f'server-dovecot/{file}.template.conf', 'r') as f:
+    with open(f'server_dovecot/{file}.template.conf', 'r') as f:
         f = f.read()
         f = f.replace('$SERVER_DOMAIN_NAME', server_config["SERVER_DOMAIN_NAME"])
         f = f.replace('$SERVER_DB_NAME', server_config["SERVER_DB_NAME"])

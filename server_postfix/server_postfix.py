@@ -18,7 +18,7 @@ files = [
 template = ""
 
 for index, file in enumerate(files):
-    with open(f'server-postfix/{file}.template.cf', 'r') as f:
+    with open(f'server_postfix/{file}.template.cf', 'r') as f:
         f = f.read()
         f = f.replace(f'$SERVER_ADMIN_USER', server_config["SERVER_ADMIN_USER"])
         f = f.replace(f'$SERVER_DB_NAME', server_config["SERVER_DB_NAME"])
