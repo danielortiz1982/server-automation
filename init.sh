@@ -11,8 +11,6 @@ sudo python3 server_db/server_db.py
 sudo python3 server_bind9/server_bind9.py
 ### Virtual Host ###
 sudo python3 server_vhost/server_vhost.py
-### Certbot SSL ###
-sudo python3 server_certbot/server_certbot.py
 ### Postfix ###
 sudo python3 server_postfix/server_postfix.py
 ### Dovecot ###
