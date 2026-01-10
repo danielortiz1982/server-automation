@@ -27,13 +27,14 @@ with open('server_vhost/template.html', 'r') as f:
 with open(f'server_vhost/index.html', 'w') as f:
     f.write(template)
 
-subprocess.run(f'sudo mkdir -p /var/www/{server_config["SERVER_DOMAIN_NAME"]}/', shell=True)
-subprocess.run(f'sudo chown www-data: /var/www/{server_config["SERVER_DOMAIN_NAME"]}', shell=True)
-subprocess.run(f'sudo -u www-data cp server_vhost/index.html /var/www/{server_config["SERVER_DOMAIN_NAME"]}/index.html')
-subprocess.run('sudo a2dissite 000-default', shell=True)
-subprocess.run(f'sudo a2ensite {server_config["SERVER_DOMAIN_NAME"]}', shell=True)
-subprocess.run(f'sudo systemctl reload apache2', shell=True)
-subprocess.run(f'sudo systemctl restart apache2', shell=True)
+    subprocess.run(f'sudo mkdir -p /var/www/{server_config["SERVER_DOMAIN_NAME"]}/', shell=True)
+    subprocess.run(f'sudo chown www-data: /var/www/{server_config["SERVER_DOMAIN_NAME"]}', shell=True)
+    subprocess.run(f'sudo -u www-data cp server_vhost/index.html /var/www/{server_config["SERVER_DOMAIN_NAME"]}/index.html')
+    subprocess.run('sudo a2dissite 000-default', shell=True)
+    subprocess.run(f'sudo a2ensite {server_config["SERVER_DOMAIN_NAME"]}', shell=True)
+    subprocess.run(f'sudo systemctl reload apache2', shell=True)
+    subprocess.run(f'sudo systemctl restart apache2', shell=True)
+
 
 ### todo check if client has a wp hosting plan ###
 ### WordPress Automation ###
