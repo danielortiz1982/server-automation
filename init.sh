@@ -13,7 +13,7 @@ sudo python3 server_postfix/server_postfix.py
 ### Dovecot ###
 sudo python3 server_dovecot/server_dovecot.py
 ### Saslauthd ###
-sudo python3 server_saslauthd/server_saslauthd.py
+# sudo python3 server_saslauthd/server_saslauthd.py
 ### DKIM & DMARC ###
 # sudo python3 server_dkim/server_dkim.py
 ### Exit Message ###
