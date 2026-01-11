@@ -1,8 +1,27 @@
 # Server Automation
 
+### System Services
+> Email Blast Pro is built using the following services.
+
+- Apache2
+- Mysql
+- Bind9
+- Certbot
+- Postfix
+- Dovecot
+- Saslauthd
+- Opendkim
+- UFW
+
+### System Automation
+> Email Blast Pro automation uses the following script langauges.
+
+- Python
+- SQL
+- Bash
+
 ### Dependencies
 - json
-- mysql
 - subprocess
 
 ### Server Environment Configuration

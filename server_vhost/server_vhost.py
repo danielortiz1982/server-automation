@@ -18,7 +18,6 @@ with open('server_vhost/your-domain-name.conf', 'r') as f:
 with open(f'/etc/apache2/sites-available/{server_config["SERVER_DOMAIN_NAME"]}.conf', 'w') as f:
     f.write(conf_file)
 
-### todo if does not have a wp plan ###
 with open('server_vhost/template.html', 'r') as f:
     f = f.read()
     f = f.replace('$SERVER_NAME', server_config['SERVER_NAME'])
@@ -27,24 +26,13 @@ with open('server_vhost/template.html', 'r') as f:
 with open(f'server_vhost/index.html', 'w') as f:
     f.write(template)
 
-    subprocess.run(f'sudo mkdir -p /var/www/{server_config["SERVER_DOMAIN_NAME"]}/', shell=True)
-    subprocess.run(f'sudo chown www-data: /var/www/{server_config["SERVER_DOMAIN_NAME"]}', shell=True)
-    subprocess.run(f'sudo -u www-data cp server_vhost/index.html /var/www/{server_config["SERVER_DOMAIN_NAME"]}/index.html', shell=True)
-    subprocess.run('sudo a2dissite 000-default', shell=True)
-    subprocess.run(f'sudo a2ensite {server_config["SERVER_DOMAIN_NAME"]}', shell=True)
-    subprocess.run(f'sudo systemctl reload apache2', shell=True)
-    subprocess.run(f'sudo systemctl restart apache2', shell=True)
-
-    ### Certbot variables (Modify these) ###
-    EMAIL=f'webmaster@{server_config["SERVER_DOMAIN_NAME"]}'                        # Your contact email for urgent renewal notices
-    DOMAIN=server_config["SERVER_DOMAIN_NAME"]                                      # Your main domain name
-    WWW_DOMAIN=f'www.{server_config["SERVER_DOMAIN_NAME"]}'                         # The www subdomain
-    WEBSERVER="apache"                                                              # Or "nginx" if you use Nginx
-
-    ### Certbot Automation ###
-    SHELL_COMMAND=f'sudo certbot run --{WEBSERVER} -d {DOMAIN} -d {WWW_DOMAIN} --noninteractive --agree-tos -m {EMAIL}'
-    subprocess.run(SHELL_COMMAND, shell=True)
-
+subprocess.run(f'sudo mkdir -p /var/www/{server_config["SERVER_DOMAIN_NAME"]}/', shell=True)
+subprocess.run(f'sudo chown www-data: /var/www/{server_config["SERVER_DOMAIN_NAME"]}', shell=True)
+subprocess.run(f'sudo -u www-data cp server_vhost/index.html /var/www/{server_config["SERVER_DOMAIN_NAME"]}/index.html', shell=True)
+subprocess.run('sudo a2dissite 000-default', shell=True)
+subprocess.run(f'sudo a2ensite {server_config["SERVER_DOMAIN_NAME"]}', shell=True)
+subprocess.run(f'sudo systemctl reload apache2', shell=True)
+subprocess.run(f'sudo systemctl restart apache2', shell=True)
 
 ### todo check if client has a wp hosting plan ###
 ### WordPress Automation ###
