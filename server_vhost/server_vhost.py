@@ -36,9 +36,9 @@ subprocess.run(f'sudo systemctl restart apache2', shell=True)
 
 ### WordPress Automation ###
 subprocess.run(f'curl https://wordpress.org/latest.tar.gz | sudo -u www-data tar zx -C /var/www/{server_config["SERVER_DOMAIN_NAME"]}', shell=True)
-subprocess.run(f'sudo -u www-data cp /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wp-config-sample.php /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wp-config.php', shell=True)
-subprocess.run(f'sudo -u www-data sed -i "s/database_name_here/{server_config["SERVER_DB_NAME"]}/" /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wp-config.php', shell=True)
-subprocess.run(f'sudo -u www-data sed -i "s/username_here/{server_config["SERVER_ADMIN_USER"]}/" /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wp-config.php', shell=True)
-subprocess.run(f'sudo -u www-data sed -i "s/password_here/{server_config["SERVER_ADMIN_PASSWORD"]}/" /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wp-config.php', shell=True)
+subprocess.run(f'sudo -u www-data cp /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wordpress/wp-config-sample.php /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wordpress/wp-config.php', shell=True)
+subprocess.run(f'sudo -u www-data sed -i "s/database_name_here/{server_config["SERVER_DB_NAME"]}/" /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wordpress/wp-config.php', shell=True)
+subprocess.run(f'sudo -u www-data sed -i "s/username_here/{server_config["SERVER_ADMIN_USER"]}/" /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wordpress/wp-config.php', shell=True)
+subprocess.run(f'sudo -u www-data sed -i "s/password_here/{server_config["SERVER_ADMIN_PASSWORD"]}/" /var/www/{server_config["SERVER_DOMAIN_NAME"]}/wordpress/wp-config.php', shell=True)
 
 print('Vhost automation successfully complete!')
