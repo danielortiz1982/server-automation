@@ -2,9 +2,6 @@
 
 ### Server Dependencies ###
 sudo sh server_dependencies/server_dependencies.sh
-### Python Environment
-python3 -m venv .venv
-source .venv/bin/activate
 ### Mysql Database ###
 sudo python3 server_db/server_db.py
 ## Bind9 Zones ###
