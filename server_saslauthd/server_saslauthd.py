@@ -19,12 +19,17 @@ with open('server_saslauthd/smtp', 'r') as f:
 with open('/etc/pam.d/smtp', 'w') as f:
     f.write(smtp)
 
+with open('/usr/lib/systemd/system/saslauthd.service', 'r') as f:
+    f = f.read()
+    f = f.replace('# PIDFile=/var/run/saslauthd/saslauthd.pid', '# PIDFile=/var/spool/postfix/var/run/saslauthd/saslauthd.pid')
+
 subprocess.run("sudo mkdir -p /var/spool/postfix/var/run/saslauthd", shell=True)
 subprocess.run("sudo cp server_saslauthd/saslauthd /etc/default/saslauthd", shell=True)
 subprocess.run("sudo cp server_saslauthd/smtpd.conf /etc/postfix/sasl/smtpd.conf", shell=True)
 subprocess.run("sudo chmod o-rwx /etc/pam.d/smtp", shell=True)
 subprocess.run("sudo chmod o-rwx /etc/postfix/sasl/smtpd.conf", shell=True)
 subprocess.run("sudo usermod  -aG sasl postfix", shell=True)
+subprocess.run("sudo systemctl daemon-reload", shell=True)
 subprocess.run("sudo systemctl restart postfix", shell=True)
 subprocess.run("sudo systemctl restart saslauthd", shell=True)
 
