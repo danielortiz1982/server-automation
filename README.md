@@ -39,5 +39,6 @@
 
 ### Init Server Automation 
 > Make sure to run the init.sh file with root
-
-`sudo sh init.sh`
+```shell
+sudo sh init.sh
+```
