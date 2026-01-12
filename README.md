@@ -36,3 +36,8 @@
     "SERVER_DB_NAME": "server_db"
 }
 ```
+
+### Init Server Automation 
+> Make sure to run the init.sh file with root
+
+`sudo sh init.sh`
