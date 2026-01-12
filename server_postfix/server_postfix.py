@@ -31,7 +31,7 @@ for index, file in enumerate(files):
     with open(f'/etc/postfix/{file}.cf', 'w') as f:
         f.write(template)
 
-
+### REMOVE ONCE YOU TEST ###
 # subprocess.run(f'sudo postconf -e "myhostname = mail.{server_config["SERVER_DOMAIN_NAME"]}"', shell=True)
 # subprocess.run(f'sudo postconf -e "mydestination = mail.{server_config["SERVER_DOMAIN_NAME"]}, localhost, localhost.localdomain, {server_config["SERVER_IP_ADDRESS"]}"', shell=True)
 # subprocess.run(f'sudo postconf -e "mynetworks = 127.0.0.0/8"', shell=True)
