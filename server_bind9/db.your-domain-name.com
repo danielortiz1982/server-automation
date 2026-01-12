@@ -19,3 +19,5 @@ $SERVER_DOMAIN_NAME.	IN	A	$SERVER_IP_ADDRESS
 www	IN	A	$SERVER_IP_ADDRESS
 mail	IN	A	$SERVER_IP_ADDRESS
 $SERVER_DOMAIN_NAME.    IN      TXT     "v=spf1 +a +ip4:$SERVER_IP_ADDRESS ~all"
+
+_dmarc             IN    TXT    "v=DMARC1; p=reject; rua=mailto:webmaster@$SERVER_DOMAIN_NAME; pct=100; adkim=s; aspf=s;"
