@@ -6,7 +6,6 @@ keytable = ""
 trustedhosts = ""
 signingtable = ""
 
-
 with open('env.json', 'r') as config:
     content = config.read()
     server_config = json.loads(content)
