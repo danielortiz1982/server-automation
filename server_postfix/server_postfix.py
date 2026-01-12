@@ -54,9 +54,9 @@ for index, file in enumerate(files):
 # subprocess.run(f'sudo postconf -e "proxy_read_maps = $local_recipient_maps $mydestination $virtual_alias_maps $virtual_alias_domains $virtual_mailbox_maps $virtual_mailbox_domains $relay_recipient_maps $relay_domains $canonical_maps $sender_canonical_maps $recipient_canonical_maps $relocated_maps $transport_maps $mynetworks $virtual_mailbox_limit_maps"', shell=True)
 
 
-# subprocess.run(f'sudo chmod o-rwx /etc/postfix/mysql_virtual_*', shell=True)
-# subprocess.run(f'sudo chown root:postfix /etc/postfix/mysql_virtual_*', shell=True)
-# subprocess.run(f'sudo groupadd -g 5000 vmail', shell=True)
-# subprocess.run(f'sudo useradd -g vmail -u 5000 -d /var/vmail -m vmail', shell=True)
+subprocess.run(f'sudo chmod o-rwx /etc/postfix/mysql_virtual_*', shell=True)
+subprocess.run(f'sudo chown root:postfix /etc/postfix/mysql_virtual_*', shell=True)
+subprocess.run(f'sudo groupadd -g 5000 vmail', shell=True)
+subprocess.run(f'sudo useradd -g vmail -u 5000 -d /var/vmail -m vmail', shell=True)
 
 print('Server Postfix automation successfully!')
