@@ -1,4 +1,4 @@
-# Server Automation
+# Email Blast Pro Server Automation
 
 ### System Services
 > Email Blast Pro is built using the following services.
@@ -14,7 +14,7 @@
 - UFW
 
 ### System Automation
-> Email Blast Pro automation uses the following script langauges.
+> Email Blast Pro automation uses the following scripting langauges.
 
 - Python
 - SQL
@@ -37,8 +37,19 @@
 }
 ```
 
-### Init Server Automation 
+### Server Init Automation 
 > Make sure to run the init.sh file with root
 ```shell
 sudo sh init.sh
 ```
+
+### Server SSL Automation
+> Once $SERVER_DOMAIN_NAME successfully resolves to $SERVER_IP_ADDRESS send a request for a ssl certificate.
+
+Make sure to run as root.
+```shell
+sudo python3 server_ssl/server_ssl.py
+```
+
+### Server DKIM Automation
+> 
