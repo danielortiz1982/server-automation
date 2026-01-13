@@ -59,8 +59,14 @@ Make sure to run as root.
 sudo python3 server_dkim/server_dkim.py
 ```
 
-> After the DKIM Automation is complete you can now update your ZONE file to include the newley created cryptographic signatures.
+> After the DKIM Automation is complete you can now update your bind9 zone file to include the newley created cryptographic signatures.
 
 ```shell
 cat /etc/opendkim/keys/$SERVER_DOMAIN_NAME/mail.txt
+```
+
+```conf
+mail._domainkey	IN	TXT	( "v=DKIM1; h=sha256; k=rsa; "
+	  "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtQoPY9JomN9Mib8zoeLp7zNNtGeycZVST3tG4iJ5vIx4ZunPa8E23Uf0F14Kfob9MKV3rrkHUuE1bAMJVttoVBlFQKcgpV9wZxko5Zky72na1aXvQCSx7P5X4LQouuW+ziSJ2c02dCb/zX6BCbyEin/R693es2RbqUDiUMA+WdAABPW9EixEJays9RZyY/tJ5+wZ4FW0Q3EoBW"
+	  "7fby8Fn704mHhwoUKWgXlDGqEadd3J7bYneRAVBClFFvAikuGqbNU2MgObaItOn364BSXBTj8pYmS6qUuFQPDuxkFEzoOVWPTecxGD7cUB0VYvoEdcDwFKEysdLTu8lHIu+adBcQIDAQAB" )  ; ----- DKIM key mail for emailblastpro.com
 ```
