@@ -52,4 +52,15 @@ sudo python3 server_ssl/server_ssl.py
 ```
 
 ### Server DKIM Automation
-> 
+> Once you have obtained a ssl certificate you can now setup dkim and dmarc authentication.
+
+Make sure to run as root.
+```shell
+sudo python3 server_dkim/server_dkim.py
+```
+
+> After the DKIM Automation is complete you can now update your ZONE file to include the newley created cryptographic signatures.
+
+```shell
+cat /etc/opendkim/keys/$SERVER_DOMAIN_NAME/mail.txt
+```
