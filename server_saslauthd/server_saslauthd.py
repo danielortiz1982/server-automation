@@ -39,3 +39,8 @@ subprocess.run("sudo systemctl restart postfix", shell=True)
 subprocess.run("sudo systemctl restart saslauthd", shell=True)
 
 print("'Server saslauthd automation successfully!'")
+
+
+### NEED TO UPDATE PATH TO PID FILE IN ###
+### /usr/lib/systemd/system/saslauthd.service ###
+### PIDFile=/var/spool/postfix/var/run/saslauthd/saslauthd.pid ###
