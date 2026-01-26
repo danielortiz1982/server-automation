@@ -22,7 +22,7 @@ with open('/etc/pam.d/smtp', 'w') as f:
 
 with open('/usr/lib/systemd/system/saslauthd.service', 'r') as f:
     f = f.read()
-    f = f.replace('# PIDFile=/var/run/saslauthd/saslauthd.pid', '# PIDFile=/var/spool/postfix/var/run/saslauthd/saslauthd.pid')
+    f = f.replace('PIDFile=/var/run/saslauthd/saslauthd.pid', 'PIDFile=/var/spool/postfix/var/run/saslauthd/saslauthd.pid')
     saslauthd = f
 
 with open('/usr/lib/systemd/system/saslauthd.service', 'w') as f:
@@ -39,8 +39,3 @@ subprocess.run("sudo systemctl restart postfix", shell=True)
 subprocess.run("sudo systemctl restart saslauthd", shell=True)
 
 print("'Server saslauthd automation successfully!'")
-
-
-### NEED TO UPDATE PATH TO PID FILE IN ###
-### /usr/lib/systemd/system/saslauthd.service ###
-### PIDFile=/var/spool/postfix/var/run/saslauthd/saslauthd.pid ###
