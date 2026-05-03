@@ -14,12 +14,13 @@ subprocess.run(f'sudo mkdir -p /etc/opendkim/keys/{server_config["SERVER_DOMAIN_
 subprocess.run(f'sudo opendkim-genkey -s mail -d {server_config["SERVER_DOMAIN_NAME"]} -D /etc/opendkim/keys/{server_config["SERVER_DOMAIN_NAME"]}', shell=True)
 subprocess.run(f'sudo chown -R opendkim:opendkim /etc/opendkim/keys')
 
-with open('server_dkim/template.KeyTable', 'r') as f:
-    f = f.read()
-    f = f.replace("$SERVER_DOMAIN_NAME", server_config["SERVER_DOMAIN_NAME"])
-    keytable = f
 
 print('DKIM Finished')
+
+# with open('server_dkim/template.KeyTable', 'r') as f:
+#     f = f.read()
+#     f = f.replace("$SERVER_DOMAIN_NAME", server_config["SERVER_DOMAIN_NAME"])
+#     keytable = f
 
 # with open('server_dkim/KeyTable', 'w') as f:
 #     f.write(keytable)
