@@ -6,13 +6,12 @@ keytable = ""
 trustedhosts = ""
 signingtable = ""
 
-subprocess.run(f'sudo mkdir -p /etc/opendkim/keys/{server_config["SERVER_DOMAIN_NAME"]}', shell=True)
-subprocess.run(f'sudo opendkim-genkey -s mail -d {server_config["SERVER_DOMAIN_NAME"]} -D /etc/opendkim/keys/{server_config["SERVER_DOMAIN_NAME"]}', shell=True)
-subprocess.run(f'sudo chown -R opendkim:opendkim /etc/opendkim/keys', shell=True)
-
 with open('env.json', 'r') as config:
     content = config.read()
     server_config = json.loads(content)
+    subprocess.run(f'sudo mkdir -p /etc/opendkim/keys/{server_config["SERVER_DOMAIN_NAME"]}', shell=True)
+    subprocess.run(f'sudo opendkim-genkey -s mail -d {server_config["SERVER_DOMAIN_NAME"]} -D /etc/opendkim/keys/{server_config["SERVER_DOMAIN_NAME"]}', shell=True)
+    subprocess.run(f'sudo chown -R opendkim:opendkim /etc/opendkim/keys', shell=True)
 
 with open('server_dkim/template.KeyTable', 'r') as f:
     f = f.read()
@@ -39,3 +38,4 @@ with open('server_dkim/template.TrustedHosts', 'r') as f:
 with open('server_dkim/TrustedHosts', 'w') as f:
     f.write(trustedhosts)
     
+print('DKIM Complete!')
