@@ -18,7 +18,7 @@ with open('server_dkim/template.KeyTable', 'r') as f:
     f = f.replace("$SERVER_DOMAIN_NAME", server_config["SERVER_DOMAIN_NAME"])
     keytable = f
 
-with open('server_dkim/KeyTable', 'w') as f:
+with open('/etc/opendkim/KeyTable', 'w') as f:
     f.write(keytable)
 
 with open('server_dkim/template.SigningTable', 'r') as f:
@@ -26,7 +26,7 @@ with open('server_dkim/template.SigningTable', 'r') as f:
     f = f.replace("$SERVER_DOMAIN_NAME", server_config["SERVER_DOMAIN_NAME"])
     signingtable = f
 
-with open('server_dkim/SigningTable', 'w') as f:
+with open('/etc/opendkim/SigningTable', 'w') as f:
     f.write(signingtable)
 
 with open('server_dkim/template.TrustedHosts', 'r') as f:
@@ -35,7 +35,7 @@ with open('server_dkim/template.TrustedHosts', 'r') as f:
     f = f.replace("$SERVER_IP_ADDRESS", server_config["SERVER_IP_ADDRESS"])
     trustedhosts = f
 
-with open('server_dkim/TrustedHosts', 'w') as f:
+with open('/etc/opendkim/TrustedHosts', 'w') as f:
     f.write(trustedhosts)
     
-print('DKIM Complete!')
+print('Server DKIM automation successfully!')
