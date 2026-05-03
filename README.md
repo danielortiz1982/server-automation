@@ -54,6 +54,7 @@ sudo python3 server_ssl/server_ssl.py
 ### Add DKIM Signatures To Bind9
 > After the DKIM Automation is complete you can now update your bind9 zone file to include the newley created cryptographic signatures found in mail.txt.
 
+Print the content from the mail.txt file to include in your Bind9 configuation
 ```shell
 cat /etc/opendkim/keys/$SERVER_DOMAIN_NAME/mail.txt
 ```
