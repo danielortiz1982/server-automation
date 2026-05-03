@@ -51,6 +51,12 @@ Make sure to run as root.
 sudo python3 server_ssl/server_ssl.py
 ```
 
+> After the DKIM Automation is complete you can now update your bind9 zone file to include the newley created cryptographic signatures.
+
+```shell
+cat /etc/opendkim/keys/$SERVER_DOMAIN_NAME/mail.txt
+```
+
 ```conf
 mail._domainkey	IN	TXT	( "v=DKIM1; h=sha256; k=rsa; "
 	  "p=MIIBIjANBgTV9XgwX+cT1MQNZS5xe0dYvzvRDApBfYXlVQtPiCDHMy2g/70fEtidAJ
