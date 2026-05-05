@@ -1,7 +1,7 @@
-# Email Blast Pro Server Automation
+# Server Automation
 
 ### System Services
-> Email Blast Pro is built using the following services.
+> Server Automation is built using the following services.
 
 - Apache2
 - Mysql
@@ -14,7 +14,7 @@
 - UFW
 
 ### System Automation
-> Email Blast Pro automation uses the following scripting langauges.
+> Server Automation uses the following scripting langauges.
 
 - Python
 - SQL
