@@ -44,7 +44,7 @@ sudo sh init.sh
 ```
 
 ### Server SSL Automation
-> Once $SERVER_DOMAIN_NAME successfully resolves to $SERVER_IP_ADDRESS send a request for a ssl certificate.
+> Once $SERVER_DOMAIN_NAME resolves to $SERVER_IP_ADDRESS send a request for a ssl certificate.
 
 Make sure to run as root.
 ```shell
