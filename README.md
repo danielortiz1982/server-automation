@@ -3,7 +3,7 @@
 ### System Services
 > Server Automation is built using the following services.
 
-- Apache2
+- ![Apache Software Foundation Logo](https://apache.org) Apache2
 - Mysql
 - Bind9
 - Certbot
