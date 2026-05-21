@@ -30,32 +30,3 @@ for index, file in enumerate(files):
         f.write(template)
 
 print('Server DKIM automation successfully!')
-
-####### Old Script ########
-
-# with open('server_dkim/template.KeyTable', 'r') as f:
-#     f = f.read()
-#     f = f.replace("$SERVER_DOMAIN_NAME", server_config["SERVER_DOMAIN_NAME"])
-#     keytable = f
-
-# with open('/etc/opendkim/KeyTable', 'w') as f:
-#     f.write(keytable)
-
-# with open('server_dkim/template.SigningTable', 'r') as f:
-#     f = f.read()
-#     f = f.replace("$SERVER_DOMAIN_NAME", server_config["SERVER_DOMAIN_NAME"])
-#     signingtable = f
-
-# with open('/etc/opendkim/SigningTable', 'w') as f:
-#     f.write(signingtable)
-
-# with open('server_dkim/template.TrustedHosts', 'r') as f:
-#     f = f.read()
-#     f = f.replace("$SERVER_DOMAIN_NAME", server_config["SERVER_DOMAIN_NAME"])
-#     f = f.replace("$SERVER_IP_ADDRESS", server_config["SERVER_IP_ADDRESS"])
-#     trustedhosts = f
-
-# with open('/etc/opendkim/TrustedHosts', 'w') as f:
-#     f.write(trustedhosts)
-    
-
