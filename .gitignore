@@ -1,3 +1,6 @@
 .venv
 env.json
 *_env.json
+KeyTable
+SigningTable
+TrustedHosts

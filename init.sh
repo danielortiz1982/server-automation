@@ -18,5 +18,7 @@ sudo python3 server_dovecot/server_dovecot.py
 sudo python3 server_saslauthd/server_saslauthd.py
 ### DKIM & DMARC ###
 sudo python3 server_dkim/server_dkim.py
+### UFW Rules ###
+sudo sh server_ufw/server-ufw.sh
 ### Exit Message ###
 echo "Server Automation Complete!"
