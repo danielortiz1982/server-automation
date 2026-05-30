@@ -42,7 +42,7 @@ def extract_and_split_ascending(dkim_record: str) -> list:
     p_value = match.group(1)
     total_len = len(p_value)
     base_len = total_len // 3
-    len1 = base_len - 1
+    len1 = base_len - 3
     len2 = base_len
     part1 = p_value[0 : len1]
     part2 = p_value[len1 : len1 + len2]
