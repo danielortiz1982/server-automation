@@ -20,4 +20,10 @@ www	IN	A	$SERVER_IP_ADDRESS
 mail	IN	A	$SERVER_IP_ADDRESS
 $SERVER_DOMAIN_NAME.    IN      TXT     "v=spf1 +a +ip4:$SERVER_IP_ADDRESS ~all"
 
+mail._domainkey	IN	TXT	( "v=DKIM1; h=sha256; k=rsa;"
+	  "p=$PART0"
+	  "$PART1"
+	  "$PART2"
+	);
+
 _dmarc             IN    TXT    "v=DMARC1; p=reject; rua=mailto:webmaster@$SERVER_DOMAIN_NAME; pct=100; adkim=s; aspf=s;"
