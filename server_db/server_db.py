@@ -2,8 +2,6 @@ import json
 import subprocess
 
 server_config = {}
-zone = ""
-named = ""
 
 with open('env.json', 'r') as config:
     content = config.read()
@@ -18,3 +16,5 @@ subprocess.run(f'sudo mysql -u root -e "USE {server_config['SERVER_DB_NAME']}; C
 subprocess.run(f'sudo mysql -u root -e "USE {server_config['SERVER_DB_NAME']}; INSERT INTO domains (domain) VALUES (\'{server_config['SERVER_DOMAIN_NAME']}\');"', shell=True)
 subprocess.run(f'sudo mysql -u root -e "USE {server_config['SERVER_DB_NAME']}; INSERT INTO users(email,password) values(\'webmaster@{server_config['SERVER_DOMAIN_NAME']}\', md5(\'P@SsWord12345@\'));"', shell=True)
 subprocess.run(f'sudo mysql -u root -e "USE {server_config['SERVER_DB_NAME']}; INSERT INTO users(email,password) values(\'{server_config['SERVER_ADMIN_USER']}@{server_config['SERVER_DOMAIN_NAME']}\', md5(\'{server_config['SERVER_ADMIN_PASSWORD']}\'));"', shell=True)
+
+print("Server db automation successfully!")

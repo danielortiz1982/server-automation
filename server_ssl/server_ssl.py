@@ -18,3 +18,4 @@ WEBSERVER="apache"                                                              
 ### Certbot Automation ###
 SHELL_COMMAND=f'sudo certbot run --{WEBSERVER} -d {DOMAIN} -d {WWW_DOMAIN} --noninteractive --agree-tos -m {EMAIL}'
 subprocess.run(SHELL_COMMAND, shell=True)
+print("Certbot & ssl certificate automation successfully!")

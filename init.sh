@@ -18,7 +18,25 @@ sudo python3 server_dovecot/server_dovecot.py
 sudo python3 server_saslauthd/server_saslauthd.py
 ### DKIM & DMARC ###
 sudo python3 server_dkim/server_dkim.py
+### Certbot & SSL ###
+sudo python3 server_ssl/server_ssl.py
 ### UFW Rules ###
 sudo sh server_ufw/server-ufw.sh
+### Restart Services ###
+sudo systemctl restart bind9
+sudo systemctl restart apache2
+sudo systemctl restart mysql
+sudo systemctl restart postfix
+sudo systemctl restart dovecot
+sudo systemctl restart saslauthd
+sudo systemctl restart opendkim
+### Print Service Status ###
+sudo systemctl status bind9
+sudo systemctl status apache2
+sudo systemctl status mysql
+sudo systemctl status postfix
+sudo systemctl status dovecot
+sudo systemctl status saslauthd
+sudo systemctl status opendkim
 ### Exit Message ###
 echo "Server Automation Complete!"

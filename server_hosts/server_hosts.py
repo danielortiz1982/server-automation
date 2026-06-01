@@ -15,3 +15,5 @@ with open('server_hosts/hosts.template', 'r') as f:
 
 with open(f'/etc/hosts', "w") as f:
     f.write(hosts)
+
+print("Server host automation successfully!")
